@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>梦苇</title>
+	<link rel="stylesheet" href="photo.css">
+	<link rel="shortcut icon" href="favicon.ico" />
+	<style>
+	p{
+		font-size: 60px;
+		color: yellow;
+		font-family: "腾祥伯当行楷繁";
+		text-align: center;
+	}
+	</style>
+</head>
+<audio src="hh.mp3" autoplay="autoplay"></audio>
+<body ondragstart='return false' onselectstart='return false'>
+	<div class='box' id='box'>
+		<img src="img/2 (1).GIF" alt="" />
+		<img src="img/2 (1).JPG"/>
+		<img src="img/2 (2).GIF"/>
+		<img src="img/2 (2).JPG"/>
+		<img src="img/2 (3).JPG"/>
+		<img src="img/2 (4).JPG"/>
+		<img src="img/2 (5).JPG"/>
+		<img src="img/2 (6).JPG"/>
+		<img src="img/2 (7).JPG"/>
+		<img src="img/2 (8).JPG"/>
+	</div>
+	<p>梦苇</p>
+</body>
+<script>
+	var box=document.getElementById('box');
+	var flag=false,x1,y1,x=0,y=-10;
+	window.onmousedown=function(e){
+		flag=true;
+		x1=e.clientX;
+		y1=e.clientY;
+	}
+	window.onmousemove=function(e){
+		if(flag==true){
+			var x2=e.clientX;
+			var y2=e.clientY;
+			var x_=x2-x1;
+			var y_=y2-y1;
+			x=x+x_*0.2;
+			y=y-y_*0.2;
+			box.style.transform="perspective("+800+"px) rotateX("+y+"deg)"+" rotateY("+x+"deg)";
+			x1=x2;
+			y1=y2;
+		}
+	}
+	window.onmouseup=function(){
+		flag=false;
+	}
+</script>
+</html>
